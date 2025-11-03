@@ -47,6 +47,7 @@ class Login extends Component {
 
   render() {
     return (
+      
       <View style={styles.container}>
 
         <Text style={styles.title}>Iniciar sesión</Text>

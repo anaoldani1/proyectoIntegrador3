@@ -26,16 +26,15 @@ class Register extends Component {
         console.log(this.state);
 
         // obligatoreidad
-        this.state.email.length == 0 ? true : this.setState({
+        this.state.email.length !== 0 ? true : this.setState({
             alertaMail: "Campo Obligatorio"
         })
-        this.state.userName.length == 0 ? true : this.setState({
+        this.state.userName.length !== 0 ? true : this.setState({
             alertaUser: "Campo Obligatorio"
         })
-        this.state.password.length == 0 ? true : this.setState({
+        this.state.password.length !== 0 ? true : this.setState({
             alertaPass: "Campo Obligatorio"
         })
-        
         ///guardo los usuarios en la coleccion users
         auth.createUserWithEmailAndPassword(email, pass)
           .then( response => {
@@ -48,7 +47,7 @@ class Register extends Component {
             .then(()=> console.log("usuario guardado en fire"))
 
             //si no se loguea correctamente muestro el error
-            .catch( e => this.setstate({
+            .catch( e => this.setState({
                 error: e
             }))
 
@@ -60,17 +59,22 @@ class Register extends Component {
     }
 
     render(){
+        {auth.currentUser && auth.currentUser.email  ? this.props.navigation.navigate("Home") : null}
+        
         return(
         <View style={styles.container}> 
             <Text>{this.state.error}</Text>
 
             <Text style={styles.title}>Email</Text>
+            <Text>{this.state.alertaMail}</Text>
             <TextInput   style={styles.input}  keyboardType='email-address'  placeholder='email' onChangeText={ text => this.setState({email:text}) }value={this.state.email} />
             
             <Text style={styles.title}>Nombre de usuario</Text>
+            <Text>{this.state.alertaUser}</Text>
             <TextInput  style={styles.input} keyboardType='default'  placeholder='userName' onChangeText={ text => this.setState({userName:text}) }value={this.state.userName} />
             
             <Text style={styles.title}>Contraseña</Text>
+            <Text>{this.state.alertaPass}</Text>
             <TextInput  style={styles.input} keyboardType='default' placeholder='password'  secureTextEntry={true}  onChangeText={ text => this.setState({password:text}) }value={this.state.password}/> 
             
             <Pressable style={styles.button}  onPress={ ()=> this.onSubmit(this.state.email, this.state.password, this.state.userName)}>

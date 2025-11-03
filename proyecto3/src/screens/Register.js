@@ -59,8 +59,6 @@ class Register extends Component {
     }
 
     render(){
-        {auth.currentUser && auth.currentUser.email  ? this.props.navigation.navigate("Home") : null}
-        
         return(
         <View style={styles.container}> 
             <Text>{this.state.error}</Text>

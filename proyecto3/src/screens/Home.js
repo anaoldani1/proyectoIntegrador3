@@ -35,7 +35,6 @@ class Home extends Component {
         return(
             <View> 
                 <Text> Home </Text>
-
                 <FlatList data={this.state.comentarios} keyExtractor={item => item.id.toString()} renderItem={ ({item, i}) => <Post posteo={item.data}/>}/>
             </View>
         )

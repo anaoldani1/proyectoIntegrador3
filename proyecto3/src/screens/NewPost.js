@@ -1,12 +1,7 @@
 import React from "react";
 import { Component } from "react";
-import { Text } from "react-native";
-import { Pressable } from "react-native";
-import { FlatList, View } from "react-native-web";
-import { db } from "../firebase/config";
-import { StyleSheet } from "react-native";
-import { TextInput } from "react-native-web";
-import { auth } from "../firebase/config";
+import { Text, Pressable, View, StyleSheet, TextInput } from "react-native";
+import { db, auth } from "../firebase/config";
 
 class NewPost extends Component {
   constructor(props) {

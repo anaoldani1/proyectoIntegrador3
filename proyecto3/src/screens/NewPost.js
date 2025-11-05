@@ -50,11 +50,8 @@ class NewPost extends Component {
   render(){
     return(
       <View style={styles.container}>
-        <Pressable onPress={() => this.props.navigation.navigate("HomeMenu")}>
-          <Text style={styles.linkText}>Volver al menú</Text>
-        </Pressable>
 
-        <Text style={styles.title}>Nuevo Post</Text>
+        <Text style={styles.title}>Crear nuevo post</Text>
 
         <TextInput
           style={styles.input}
@@ -66,39 +63,61 @@ class NewPost extends Component {
 
 
         <Pressable style={styles.button} onPress={() => this.onSubmit(this.state.Mensaje)}>
-          <Text style={styles.buttonText}>Guardar posts</Text>
+          <Text style={styles.buttonText}>Publicar post</Text>
         </Pressable>
 
-        <Pressable onPress={() => this.props.navigation.navigate("Login")}>
-          <Text>Ir al Login</Text>
-        </Pressable>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container:{ flex: 1, padding: 16 },
-  linkText:{ marginBottom: 10, textDecorationLine: "underline" },
-  title:{ fontSize: 22, fontWeight: "bold", marginBottom: 12 },
-  input:{
+   container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: "#fefcfb",
+  },
+
+  title: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginBottom: 12,
+    color: "#1e3a5f",
+  },
+
+  input: {
+    height:150,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#cbd5e1",
     borderRadius: 6,
     padding: 10,
-    minHeight: 120,
     textAlignVertical: "top",
-    marginBottom: 8
+    marginBottom: 10,
+    backgroundColor: "#ffffff",
+    color: "#1e293b",
   },
-  error:{ color: "red", marginBottom: 8 },
-  button:{
-    backgroundColor: "#000",
+
+  error: {
+    color: "red",
+    marginBottom: 8,
+    fontSize: 14,
+    fontFamily: "calibri",
+  },
+
+  button: {
+    backgroundColor: "#f87171",
     paddingVertical: 12,
     borderRadius: 6,
     alignItems: "center",
-    marginBottom: 12
+    marginTop: 10,
   },
-  buttonText:{ color: "#fff", fontWeight: "bold" }
+
+  buttonText: {
+    color: "#fff",
+    fontFamily: "calibri",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
 });
 
 export default NewPost;

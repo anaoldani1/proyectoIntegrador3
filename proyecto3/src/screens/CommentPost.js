@@ -1,27 +1,40 @@
 import React from "react";
 import { Component } from "react";
-import { View, Text, FlatList } from "react-native";
-import { StyleSheet } from "react-native";
+import { Text } from "react-native";
 import { Pressable } from "react-native";
+import { TextInput } from "react-native-web";
+import { View } from "react-native-web";
+import { StyleSheet } from "react-native";
 
-class Post extends Component {
+class CommentPost extends Component {
     constructor(props){
         super(props)
         this.state={
-            comentario: this.props.posteo.comment,
-            usuario: this.props.posteo.email,
+            comentarios: "",
         }
     }
-    render(){
 
+    onSubmit(){
+        console.log(this.state);
+        console.log(this.props);
+        
+        
+    }
+
+    render(){
         return(
         <View style={styles.container}> 
-            <Text>Comentario: {this.state.comentario}</Text>
-            <Text>Usuario: {this.state.usuario}</Text>
+        
+    
+                <TextInput   style={styles.input} keyboardType='default'  placeholder='comentarios' onChangeText={ text => this.setState({comentarios:text}) }value={this.state.userName} />
+                <Pressable style={styles.button} onPress={() => this.onSubmit()}>
+                <Text style={styles.buttonText} >Enviar </Text> 
+                </Pressable>
 
-             <Pressable onPress={ ()=> this.props.navigation.navigate("CommentPost")}>
-                                <Text style={styles.linkText} > Comentar </Text>
-              </Pressable>
+              <View> 
+                <Text> {this.state.comentarios}</Text>
+              </View>
+
         </View>
             
         )
@@ -77,4 +90,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Post
+export default CommentPost

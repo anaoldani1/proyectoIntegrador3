@@ -12,22 +12,23 @@ class Home extends Component {
             loading: true
         }
     }
-    componentDidMount(){
-        db.collection('posts').onSnapshot(docs =>{
-            let posts = [];
-            docs.forEach( doc => {
-                posts.push({
-                id: doc.id,                        
-                data: doc.data()
-            });
+   componentDidMount(){
+    db.collection("posts")
+      .orderBy("createdAt", "desc")
+      .onSnapshot((docs) => {
+        let posts = [];
+        docs.forEach((doc) => {
+          posts.push({
+            id: doc.id,
+            data: doc.data()
+          });
         });
         this.setState({
-            comentarios: posts,
-            loading: false
-            });
+          comentarios: posts,
+          loading: false
         });
-    }
-
+      });
+  }
 
     render(){
         console.log(this.props);
@@ -35,7 +36,7 @@ class Home extends Component {
         return(
             <View> 
                 <Text> Home </Text>
-                <FlatList data={this.state.comentarios} keyExtractor={item => item.id.toString()} renderItem={ ({item, i}) => <Post posteo={item.data}/>}/>
+                <FlatList data={this.state.comentarios} keyExtractor={item => item.id.toString()} renderItem={ ({item, i}) => <Post posteo={item.data} navigation={this.props.navigation}/>}/>
             </View>
         )
     }

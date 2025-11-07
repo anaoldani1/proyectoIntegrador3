@@ -52,33 +52,22 @@ class Login extends Component {
 
         <Text style={styles.title}>Iniciar sesión</Text>
 
-        {/* <Pressable onPress={() => this.props.navigation.navigate("HomeMenu")}>
-          <Text style={styles.texto2}> Entrar en la app </Text>
-
-
-        </Pressable> */}
         <Text style={styles.title}>Email</Text>
         <TextInput style={styles.input} keyboardType='email-address' placeholder='Ingrese su email' onChangeText={text => this.setState({ email: text })} value={this.state.email} />
-        <Text> {this.state.alertaMail}</Text>
+        <Text style={styles.errorText}> {this.state.alertaMail}</Text>
 
         <Text style={styles.title}>Contraseña</Text>
         <TextInput style={styles.input} keyboardType='default' placeholder='Ingrese su contraseña' secureTextEntry={true} onChangeText={text => this.setState({ password: text })} value={this.state.password} />
-        <Text> {this.state.alertaP}</Text>
+        <Text style={styles.errorText}> {this.state.alertaP}</Text>
         <Pressable style={styles.button} onPress={() => this.onSubmit(this.state.email, this.state.password, this.state.userName)}>
-          <Text>Login </Text>
+          <Text style={styles.buttonText}>Login </Text>
         </Pressable>
 
         <Pressable onPress={() => this.props.navigation.navigate("Register")}>
           <Text style={styles.linkText} >No tengo cuenta  </Text>
         </Pressable>
-        
+
          <Text> {this.state.error}</Text>
-
-
-        <View>
-          <Text> {this.state.email}</Text>
-          <Text> {this.state.password}</Text>
-        </View>
 
 
       </View>
@@ -87,50 +76,60 @@ class Login extends Component {
 
 }
 const styles = StyleSheet.create({
-
   container: {
-    paddingHorizontal: 10,
-    marginTop: 20,
+    flex: 1,
+    backgroundColor: "#fefcfb",
+    padding: 24,
+    justifyContent: "center",
   },
 
-
   title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
+    fontSize: 22,
+    fontWeight: "700",
+    fontFamily: "calibri", 
+    color: "#111827",
+    marginBottom: 8,
   },
 
   input: {
-    height: 40,
-    paddingVertical: 15,
-    paddingHorizontal: 10,
+    height: 48,
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderStyle: "solid",
-    borderRadius: 6,
-    marginVertical: 10,
+    borderColor: "#cbd5e1",
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    backgroundColor: "#ffffff",
+    marginVertical: 8,
   },
-
 
   button: {
-    backgroundColor: "#28a745",
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: "#28a745",
+    backgroundColor: "#f87171",
+    paddingVertical: 12,
+    borderRadius: 12,
     alignItems: "center",
+    marginTop: 12,
   },
-
+ 
   buttonText: {
     color: "#fff",
-    textAlign: "center",
+    fontFamily: "calibri", 
+    fontWeight: "600",
+    fontSize: 16,
   },
+
+    errorText: {
+    color: "#dc2626", 
+    fontSize: 14,
+    marginBottom: 6,
+    fontFamily: "calibri",
+    },
 
 
   linkText: {
-    color: "#007bff",
-    marginBottom: 15,
+    color: "#f87171",
+    fontSize: 16,
+    fontFamily: "calibri", 
+    textAlign: "center",
+    fontWeight: "500",
   },
 
 

@@ -55,25 +55,22 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    height: 40, 
-    paddingVertical: 15,
-    paddingHorizontal: 10,
+    height: 48,
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderStyle: "solid",
-    borderRadius: 6,
-    marginVertical: 10,
+    borderColor: "#cbd5e1",
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    backgroundColor: "#ffffff",
+    marginVertical: 8,
   },
 
 
   button: {
-    backgroundColor: "#28a745",
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: "#28a745",
+    backgroundColor: "#f87171",
+    paddingVertical: 12,
+    borderRadius: 12,
     alignItems: "center",
+    marginTop: 12,
   },
 
   buttonText: {

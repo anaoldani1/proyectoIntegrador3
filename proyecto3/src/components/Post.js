@@ -8,7 +8,7 @@ class Post extends Component {
     constructor(props){
         super(props)
         this.state={
-            comentario: this.props.posteo.comentario,
+            comentario: this.props.posteo.mensaje,
             usuario: this.props.posteo.email,
         }
     }

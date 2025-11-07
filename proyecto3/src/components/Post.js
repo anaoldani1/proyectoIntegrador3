@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { View, Text, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
+import { Pressable } from "react-native";
 
 class Post extends Component {
     constructor(props){
@@ -15,8 +16,10 @@ class Post extends Component {
 
         return(
         <View style={styles.container}> 
+            <Text>{this.state.usuario}</Text>
             <Text>Comentario: {this.state.comentario}</Text>
-            <Text>Usuario: {this.state.usuario}</Text>
+            <Text>Likes: </Text>
+            <Pressable onPress={ ()=> this.props.navigation.navigate("Login")}>Comentar</Pressable>
         </View>
             
         )

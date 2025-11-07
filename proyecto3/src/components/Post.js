@@ -16,7 +16,10 @@ class Post extends Component {
 
         return(
         <View style={styles.container}> 
+            <Text>{this.state.usuario}</Text>
             <Text>Comentario: {this.state.comentario}</Text>
+            <Text>Likes: </Text>
+            <Pressable onPress={ ()=> this.props.navigation.navigate("Login")}>Comentar</Pressable>
             <Text>Usuario: {this.state.usuario}</Text>
 
              <Pressable onPress={ ()=> this.props.navigation.navigate("CommentPost")}>

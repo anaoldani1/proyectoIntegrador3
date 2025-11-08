@@ -36,7 +36,8 @@ class Home extends Component {
         return(
             <View> 
                 <Text> Home </Text>
-                <FlatList data={this.state.comentarios} keyExtractor={item => item.id.toString()} renderItem={ ({item, i}) => <Post posteo={item.data} navigation={this.props.navigation}/>}/>
+                <FlatList data={this.state.comentarios} keyExtractor={item => item.id.toString()} renderItem={ ({item, i}) => <Post posteo={item.data}   postId={item.id}
+  email={item.data.email} navigation={this.props.navigation}/>}/>
             </View>
         )
     }

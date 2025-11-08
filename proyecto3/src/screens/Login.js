@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: "700",
     fontFamily: "calibri", 
     color: "#111827",

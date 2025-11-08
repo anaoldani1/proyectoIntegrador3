@@ -189,7 +189,7 @@ render() {
       {this.state.error !== "" ? <Text style={styles.error}>{this.state.error}</Text> : null}
 
       <Pressable style={styles.btn} onPress={() => this.onSubmit()}>
-        <Text style={styles.btnTxt}>Enviar</Text>
+        <Text style={styles.btnTxt}>Publicar comentario</Text>
       </Pressable>
     </View>
   );
@@ -197,14 +197,53 @@ render() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16 },
-  titulo: { fontSize: 20, fontWeight: "700", marginBottom: 10 },
-  vacio: { fontStyle: "italic", marginBottom: 10 },
-  input: { borderWidth: 1, borderColor: "#ccc", borderRadius: 8, padding: 10, marginTop: 10 },
-  btn: { backgroundColor: "#28a745", paddingVertical: 10, borderRadius: 8, alignItems: "center", marginTop: 10 },
-  btnTxt: { color: "#fff", fontWeight: "700" },
+  container:{ 
+    flex: 1, 
+    padding: 16 },
+
+  titulo: { 
+    fontSize: 20, 
+    fontWeight: "700", 
+    marginBottom: 10 },
+
+  vacio: { 
+    fontStyle: "italic",
+     marginBottom: 10 },
+
+  input: 
+  { borderWidth: 1,
+     borderColor: "#ccc", 
+     borderRadius: 8, 
+     padding: 10,
+    marginTop: 10 , 
+    height: 100,
+    width:500,
+  },
+
+  btn: { 
+    backgroundColor: "#f87171",
+    paddingVertical: 12,
+    borderRadius: 12,
+    alignItems: "center",
+    marginTop: 12,
+    width: 500,
+    paddingVertical: 10, 
+    borderRadius: 8, 
+    alignItems: "center",
+     marginBottom: 100 },
+
+  btnTxt:
+   { color: "#fff",
+     fontWeight: "700" ,
+    },
+
   error: { color: "red", marginTop: 8 },
-  commentItem: { backgroundColor: "#f6f6f6", borderRadius: 8, padding: 10, marginBottom: 8 },
+  commentItem: 
+  { backgroundColor: "#f6f6f6", 
+    borderRadius: 8,
+    padding: 10,
+     marginBottom: 8 },
+
   commentEmail: { fontWeight: "600", marginBottom: 4 },
   commentText: {}
 });

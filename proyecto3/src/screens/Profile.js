@@ -13,6 +13,15 @@ class Profile extends Component {
         }
     }
 
+    componentDidMount(){
+        auth.onAuthStateChanged(user => {
+            console.log(user)
+            if(!user){
+            this.props.navigation.navigate("Login");
+            }
+        })
+    }
+
     render(){
         return(
                  <Pressable onPress={ ()=> this.props.navigation.navigate("Login")}>

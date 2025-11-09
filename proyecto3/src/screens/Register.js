@@ -73,11 +73,12 @@ class Register extends Component {
         return(
         <View style={styles.container}> 
             <Text>{this.state.error}</Text>
-
+               <Text style={styles.titulo}>Registro</Text>
+           <View style={styles.form}> 
             <Text style={styles.title}>Email</Text>
             <Text style={styles.errorText}>{this.state.alertaMail}</Text>
             <TextInput   style={styles.input}  keyboardType='email-address'  placeholder='email' onChangeText={ text => this.setState({email:text}) }value={this.state.email} />
-            
+             </View>
             <Text style={styles.title}>Nombre de usuario</Text>
             <Text style={styles.errorText}>{this.state.alertaUser}</Text>
             <TextInput  style={styles.input} keyboardType='default'  placeholder='userName' onChangeText={ text => this.setState({userName:text}) }value={this.state.userName} />
@@ -102,24 +103,39 @@ class Register extends Component {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: "#fefcfb",
     padding: 24,
+    alignItems: "center", 
     justifyContent: "center",
   },
-
-  title: {
-    fontSize: 22,
+  titulo:{
+    fontSize: 30,
     fontWeight: "700",
     fontFamily: "calibri", 
     color: "#111827",
     marginBottom: 8,
   },
 
+  
+
+  title: {
+    fontSize: 18,
+    fontWeight: "700",
+    fontFamily: "calibri", 
+    color: "#111827",
+    marginBottom: 8,
+    
+  },
+
+   form: {
+    alignItems: "center",
+  },
+
   input: {
     height: 48,
+    width:400,
     borderWidth: 1,
     borderColor: "#cbd5e1",
     borderRadius: 12,
@@ -134,6 +150,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: "center",
     marginTop: 12,
+    width: 200,
   },
  
   buttonText: {

@@ -57,10 +57,11 @@ class Login extends Component {
       
       <View style={styles.container}>
 
-        <Text style={styles.title}>Iniciar sesión</Text>
-
+        <Text style={styles.titulo}>Iniciar sesión</Text>
+        <View style={styles.form}> 
         <Text style={styles.title}>Email</Text>
         <TextInput style={styles.input} keyboardType='email-address' placeholder='Ingrese su email' onChangeText={text => this.setState({ email: text })} value={this.state.email} />
+        </View>
         <Text style={styles.errorText}> {this.state.alertaMail}</Text>
 
         <Text style={styles.title}>Contraseña</Text>
@@ -87,19 +88,33 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fefcfb",
     padding: 24,
+    alignItems: "center", 
     justifyContent: "center",
   },
-
-  title: {
-    fontSize: 22,
+  titulo:{
+    fontSize: 30,
     fontWeight: "700",
     fontFamily: "calibri", 
     color: "#111827",
     marginBottom: 8,
   },
 
+  title: {
+    fontSize: 18,
+    fontWeight: "700",
+    fontFamily: "calibri", 
+    color: "#111827",
+    marginBottom: 8,
+  },
+
+   form: {
+  
+    alignItems: "center",
+  },
+
   input: {
     height: 48,
+    width:400,
     borderWidth: 1,
     borderColor: "#cbd5e1",
     borderRadius: 12,
@@ -114,6 +129,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: "center",
     marginTop: 12,
+    width: 200,
   },
  
   buttonText: {

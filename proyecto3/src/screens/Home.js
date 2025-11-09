@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, StyleSheet } from "react-native";
 import { db, auth } from "../firebase/config";
 import Post from "../components/Post"
 class Home extends Component {
@@ -41,12 +41,26 @@ class Home extends Component {
         console.log(this.props);
         
         return(
-            <View> 
-                <Text> Home </Text>
-                <FlatList data={this.state.comentarios} keyExtractor={item => item.id.toString()} renderItem={ ({item, i}) => <Post posteo={item.data} navigation={this.props.navigation}/>}/>
+            <View style={styles.container}>  
+                <Text style={styles.container}> Home </Text>
+                <FlatList data={this.state.comentarios} keyExtractor={item => item.id.toString()} renderItem={ ({item, i}) => <Post posteo={item.data} navigation={this.props.navigation} id={item.id}/>}/>
             </View>
         )
     }
 }
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fefcfb",
+      padding: 24,
+    },
+    title: {
+      fontSize: 22,
+      fontWeight: "700",
+      fontFamily: "calibri",
+      color: "#111827",
+      marginBottom: 12,
+    },
+  });
 
 export default Home

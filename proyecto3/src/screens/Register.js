@@ -38,24 +38,35 @@ class Register extends Component {
         ///guardo los usuarios en la coleccion users
         auth.createUserWithEmailAndPassword(email, pass)
           .then( response => {
-              db.collection('users').add({
+            db.collection('users').add({
                 email: email,
                 password: pass,
                 userName: user,
                 createdAt: Date.now(),
             })
-            .then(()=> console.log("usuario guardado en fire"))
+            .then(()=> {
+              console.log("usuario guardado en fire")
 
+              auth.signOut()
+                .then(() => {
+                  this.setState({ registered: true });
+                  this.props.navigation.navigate("Login");
+                })
+                .catch(e => this.setState({
+                error: e.message
+                }))
+            })
             //si no se loguea correctamente muestro el error
             .catch( e => this.setState({
-                error: e
+                error: e.message
             }))
 
             this.setState({registered: true})
             this.props.navigation.navigate("Login")
           })     
-
-          .catch( e => console.log(e))
+          .catch(e => this.setState({
+              error: e.message
+          }))
     }
 
     render(){

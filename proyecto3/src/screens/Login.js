@@ -41,8 +41,15 @@ class Login extends Component {
         this.setState({ error: 'Credenciales incorrectas.' })
       })
 
-
-
+  }
+  componentDidMount(){
+    ///SI YA ESTA LOGUEADO QUE NO MW LLEVE IGUAL A LOGIN
+    auth.onAuthStateChanged(user => {
+      console.log(user)
+      if(user){
+      this.props.navigation.navigate("HomeMenu");
+      }
+  })
   }
 
   render() {

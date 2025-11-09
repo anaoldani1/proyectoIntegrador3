@@ -71,11 +71,9 @@ class Post extends Component {
                 </Text>
               </Pressable>
     
-              <Pressable 
-                style={styles.botonAccion}
-                onPress={() => this.props.navigation.navigate("CommentPost", { id: this.props.postId })}>
-                <Text style={styles.textoBotonAccion}>Comentar</Text>
-              </Pressable>
+             <Pressable style={styles.botonAccion} onPress={() => this.props.navigation.navigate("CommentPost", { id: this.props.postId })}>
+               <Text style={styles.textoBotonAccion}>Comentar</Text> 
+               </Pressable>
             </View>
           </View>
             

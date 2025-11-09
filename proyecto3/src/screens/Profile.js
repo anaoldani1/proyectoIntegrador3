@@ -105,13 +105,12 @@ const styles = StyleSheet.create({
       backgroundColor: "#fefcfb",
       padding: 24,
     },
-    title: {
-      fontSize: 22,
-      fontWeight: "700",
-      fontFamily: "calibri",
-      color: "#111827",
-      marginBottom: 12,
-    },
+     title: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginBottom: 12,
+    color: "#1e3a5f",
+  },
     text: {
       fontSize: 16,
       fontFamily: "calibri",

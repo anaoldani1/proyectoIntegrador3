@@ -42,7 +42,7 @@ class Home extends Component {
         
         return(
             <View style={styles.container}>  
-                <Text style={styles.container}> Home </Text>
+                <Text style={styles.title}> Home </Text>
                 <FlatList data={this.state.comentarios} keyExtractor={item => item.id.toString()} renderItem={ ({item, i}) => <Post posteo={item.data} navigation={this.props.navigation} id={item.id} postId={item.id} email={item.data.email} />}/>
             </View>
         )
@@ -54,13 +54,12 @@ const styles = StyleSheet.create({
       backgroundColor: "#fefcfb",
       padding: 24,
     },
-    title: {
-      fontSize: 22,
-      fontWeight: "700",
-      fontFamily: "calibri",
-      color: "#111827",
-      marginBottom: 12,
-    },
+     title: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginBottom: 12,
+    color: "#1e3a5f",
+  },
   });
 
 export default Home

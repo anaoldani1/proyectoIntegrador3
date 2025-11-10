@@ -157,6 +157,7 @@ const styles = StyleSheet.create({
      fontWeight: "700" ,
     },
 
+    // styles para lp del ppst 
    postCard: {
   backgroundColor: "#ffe4e6", 
   borderWidth: 1,

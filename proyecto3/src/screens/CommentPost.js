@@ -9,7 +9,8 @@ class CommentPost extends Component {
       postId: this.props.route.params.id, 
       comentario: "",
       comentarios: [],
-      error: ""
+      error: "", 
+      postData: null
     };
   }
 
@@ -26,7 +27,8 @@ class CommentPost extends Component {
             arr = data.comments;
           }
         }
-        this.setState({ comentarios: arr });
+        const postData = data ? { descripcion: data.mensaje, owner: data.email} : null;
+        this.setState({ comentarios: arr, postData: postData });
       });
   }
 
@@ -69,6 +71,14 @@ class CommentPost extends Component {
 render() {
   return (
     <View style={styles.container}>
+    {/* PARA QUE SE VEA EL POST QUE ESTAS COMENTANDO  */}
+     {this.state.postData ? (
+      <View style={styles.postCard}>
+        <Text style={styles.postDescripcion}>{this.state.postData.descripcion}</Text>
+        <Text style={styles.postOwner}>Publicado por: {this.state.postData.owner}</Text>
+  </View>
+) : null}
+
       {this.state.comentarios.length === 0 ? (
         <Text style={styles.vacio}>No hay comentarios aún.</Text>
       ) : (
@@ -147,6 +157,29 @@ const styles = StyleSheet.create({
      fontWeight: "700" ,
     },
 
+   postCard: {
+  backgroundColor: "#ffe4e6", 
+  borderWidth: 1,
+  borderColor: "#f87171", 
+  borderRadius: 10,
+  padding: 16,
+  marginBottom: 20,
+},
+
+postDescripcion: {
+  fontSize: 16,
+  color: "#111827",
+  marginBottom: 6,
+  fontWeight: "500",
+},
+
+postOwner: {
+  fontSize: 13,
+  color: "#6b7280",
+  fontStyle: "italic",
+},
+
+
   error: { color: "red", marginTop: 8 },
   commentItem: 
   { backgroundColor: "#f6f6f6", 
@@ -156,6 +189,7 @@ const styles = StyleSheet.create({
 
   commentEmail: { fontWeight: "600", marginBottom: 4 },
   commentText: {}
+
 });
 
 export default CommentPost;

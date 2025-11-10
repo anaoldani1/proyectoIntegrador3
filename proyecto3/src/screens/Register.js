@@ -66,12 +66,17 @@ class Register extends Component {
           })     
           .catch(e => {
             console.log(e)
-            if (e.message == "el mensaje") {
-              
+            if (e.message == "The email address is badly formatted.") {
+              this.setState({
+                error: "Ingresá correctamente el mail"
+              })
             }
-            this.setState({
-              error: e.message
-          })}
+            if(e.message == "Password should be at least 6 characters"){
+              this.setState({
+                error: "La contraseña debe tener mas de 6 caracteres"
+              })
+            }
+            }
         )
     }
 

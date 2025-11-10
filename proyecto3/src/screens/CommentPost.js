@@ -108,8 +108,8 @@ render() {
         <Text style={styles.btnTxt}>Publicar comentario</Text>
       </Pressable>
 
-      <Pressable onPress={() => this.props.navigation.navigate("HomeMenu")}>
-           <Text>Volver a Home</Text>
+      <Pressable style={styles.btnVolver} onPress={() => this.props.navigation.navigate("HomeMenu")}>
+           <Text style={styles.btnVolverTxt}>Volver a Home</Text>
     </Pressable>
     </View>
   );
@@ -156,6 +156,26 @@ const styles = StyleSheet.create({
    { color: "#fff",
      fontWeight: "700" ,
     },
+
+    btnVolver: {
+  backgroundColor: "#fff",
+  borderWidth: 2,
+  borderColor: "#f87171",
+  borderRadius: 12,
+  paddingVertical: 10,
+  paddingHorizontal: 20,
+  alignItems: "center",
+  justifyContent: "center",
+  marginTop: 16,
+  width: 500,
+},
+
+btnVolverTxt: {
+  color: "#f87171",
+  fontWeight: "700",
+  fontSize: 16,
+},
+
 
     // styles para lp del ppst 
    postCard: {

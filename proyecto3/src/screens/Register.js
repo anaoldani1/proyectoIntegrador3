@@ -64,9 +64,15 @@ class Register extends Component {
             this.setState({registered: true})
             this.props.navigation.navigate("Login")
           })     
-          .catch(e => this.setState({
+          .catch(e => {
+            console.log(e)
+            if (e.message == "el mensaje") {
+              
+            }
+            this.setState({
               error: e.message
-          }))
+          })}
+        )
     }
 
     render(){

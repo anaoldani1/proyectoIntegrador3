@@ -7,15 +7,15 @@ class CommentPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postId: this.props.route.params.id,
+      postId: this.props.route.params.id, //id del post
       comentario: "",
-      comentarios: [],
+      comentarios: [], //lo q la gent coment en el post
       error: "",
     };
   }
 
   componentDidMount() {
-    let postId = this.state.postId;
+    let postId = this.state.postId; 
 
     db.collection("posts")
       .doc(postId)
@@ -23,14 +23,14 @@ class CommentPost extends Component {
         let data = doc.data();
         let array = data.comments;
 
-        let postData = data ? { descripcion: data.mensaje, owner: data.email } : null;
+        let postData = data ? { descripcion: data.mensaje, owner: data.email } : null; //[ara armar el post]
 
         this.setState({ comentarios: array, postData: postData });
       });
   }
 
   onSubmit() {
-    let postId = this.state.postId;
+    let postId = this.state.postId; 
     let comentarioActual = this.state.comentario;
 
     if (!auth.currentUser) {
@@ -41,7 +41,7 @@ class CommentPost extends Component {
       this.setState({ error: "El comentario no puede estar vacío." });
     }
 
-    const nuevoComentario = {
+    let nuevoComentario = {
       email: auth.currentUser.email,
       texto: comentarioActual,
       createdAt: Date.now(),

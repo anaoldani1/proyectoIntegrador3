@@ -36,7 +36,7 @@ class NewPost extends Component {
       mensaje: mensaje,
       createdAt: Date.now(),
       likes: []    , // emails de usuarios que likearon
-       comments: [],
+      comments: [],
     })
     .then(() => {
       this.setState({ Mensaje: "", error: "" });

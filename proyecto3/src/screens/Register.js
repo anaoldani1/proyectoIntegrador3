@@ -76,6 +76,13 @@ class Register extends Component {
                 error: "La contraseña debe tener mas de 6 caracteres"
               })
             }
+            if (e.message == "The email address is already in use by another account.") {
+              this.setState({
+                error: "El mail ya pertenece a una cuenta"
+              })
+            }
+            
+
             }
         )
     }
@@ -93,8 +100,8 @@ class Register extends Component {
     render(){
         return(
         <View style={styles.container}> 
-            <Text>{this.state.error}</Text>
                <Text style={styles.titulo}>Registro</Text>
+            <Text>{this.state.error}</Text>
            <View style={styles.form}> 
             <Text style={styles.title}>Email</Text>
             <Text style={styles.errorText}>{this.state.alertaMail}</Text>
@@ -127,42 +134,41 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fefcfb",
-    padding: 24,
-    alignItems: "center", 
+    paddingHorizontal: 24,
     justifyContent: "center",
   },
-  titulo:{
-    fontSize: 30,
-    fontWeight: "700",
-    fontFamily: "calibri", 
-    color: "#111827",
-    marginBottom: 8,
-  },
 
-  
+  titulo: {
+    fontSize: 28,
+    fontWeight: "700",
+    fontFamily: "calibri",
+    color: "#111827",
+    marginBottom: 24,
+    textAlign: "center",
+  },
 
   title: {
     fontSize: 18,
-    fontWeight: "700",
-    fontFamily: "calibri", 
+    fontWeight: "600",
+    fontFamily: "calibri",
     color: "#111827",
-    marginBottom: 8,
-    
+    marginBottom: 4,
+    marginTop: 8,
   },
 
-   form: {
-    alignItems: "center",
+  form: {
+    marginBottom: 4,
   },
 
   input: {
     height: 48,
-    width:400,
     borderWidth: 1,
     borderColor: "#cbd5e1",
     borderRadius: 12,
     paddingHorizontal: 12,
     backgroundColor: "#ffffff",
-    marginVertical: 8,
+    marginBottom: 12,
+    alignSelf: "stretch", 
   },
 
   button: {
@@ -170,34 +176,32 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 12,
     alignItems: "center",
-    marginTop: 12,
-    width: 200,
+    marginTop: 16,
   },
- 
+
   buttonText: {
     color: "#fff",
-    fontFamily: "calibri", 
+    fontFamily: "calibri",
     fontWeight: "600",
     fontSize: 16,
   },
 
-    errorText: {
-    color: "#dc2626", 
+  errorText: {
+    color: "#dc2626",
     fontSize: 14,
-    marginBottom: 6,
+    marginBottom: 4,
     fontFamily: "calibri",
-    },
-
+  },
 
   linkText: {
     color: "#f87171",
     fontSize: 16,
-    fontFamily: "calibri", 
+    fontFamily: "calibri",
     textAlign: "center",
     fontWeight: "500",
+    marginTop: 16,
   },
-
-
 });
+
 
 export default Register

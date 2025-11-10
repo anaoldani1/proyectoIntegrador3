@@ -87,40 +87,36 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fefcfb",
-    padding: 24,
-    alignItems: "center", 
+    paddingHorizontal: 24,
     justifyContent: "center",
   },
-  titulo:{
-    fontSize: 30,
+
+  titulo: {
+    fontSize: 28,
     fontWeight: "700",
-    fontFamily: "calibri", 
+    fontFamily: "calibri",
     color: "#111827",
-    marginBottom: 8,
+    marginBottom: 24,
+    textAlign: "center",
   },
 
   title: {
     fontSize: 18,
-    fontWeight: "700",
-    fontFamily: "calibri", 
+    fontWeight: "600",
+    fontFamily: "calibri",
     color: "#111827",
-    marginBottom: 8,
-  },
-
-   form: {
-  
-    alignItems: "center",
+    marginBottom: 6,
   },
 
   input: {
     height: 48,
-    width:400,
     borderWidth: 1,
     borderColor: "#cbd5e1",
     borderRadius: 12,
     paddingHorizontal: 12,
     backgroundColor: "#ffffff",
-    marginVertical: 8,
+    marginBottom: 12,
+    alignSelf: "stretch",   // hace que el input ocupe todo el ancho disponible
   },
 
   button: {
@@ -128,34 +124,32 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 12,
     alignItems: "center",
-    marginTop: 12,
-    width: 200,
+    marginTop: 16,
   },
- 
+
   buttonText: {
     color: "#fff",
-    fontFamily: "calibri", 
+    fontFamily: "calibri",
     fontWeight: "600",
     fontSize: 16,
   },
 
-    errorText: {
-    color: "#dc2626", 
+  errorText: {
+    color: "#dc2626",
     fontSize: 14,
     marginBottom: 6,
     fontFamily: "calibri",
-    },
-
+  },
 
   linkText: {
     color: "#f87171",
     fontSize: 16,
-    fontFamily: "calibri", 
+    fontFamily: "calibri",
     textAlign: "center",
     fontWeight: "500",
+    marginTop: 16,
   },
-
-
 });
+
 
 export default Login

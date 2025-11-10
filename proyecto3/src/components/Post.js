@@ -12,45 +12,25 @@ class Post extends Component {
         this.state={
             comentario: this.props.posteo.mensaje,
             usuario: this.props.posteo.email,
-            likes: this.props.posteo.likes ? this.props.posteo.likes.length : 0,
-            miLike: this.props.posteo.likes ? this.props.posteo.likes.includes(auth.currentUser.email) : false,
+            likes: this.props.posteo.likes.length,
+            likeado: this.props.posteo.likes.includes(auth.currentUser.email)
         }
     }
     likear(){
         let usuarioActual = auth.currentUser.email;
-    
-        if(this.state.miLike){
-          // Si ya le di like lo saco
-          
-          db.collection('posts')
-          .doc(this.props.id)
-          .update({
-            likes: firebase.firestore.FieldValue.arrayRemove(usuarioActual)
-          })
-          .then(() => {
-            this.setState({
-              likes: this.state.likes - 1,
-              miLike: false
-            })
-          })
-          .catch(e => console.log(e))
-    
-        } else {
-          // Si no le di like lo agrego
 
           db.collection('posts')
           .doc(this.props.id)
           .update({
-            likes: firebase.firestore.FieldValue.arrayUnion(usuarioActual)
+            likes: this.state.likeado ? firebase.firestore.FieldValue.arrayRemove(usuarioActual) : firebase.firestore.FieldValue.arrayUnion(usuarioActual)
           })
           .then(() => {
             this.setState({
-              likes: this.state.likes + 1,
-              miLike: true
+                likeado: !this.state.likeado, 
+                likes: this.props.posteo.likes.length //sino no se actualiza la nueva cantidad de likes
             })
           })
           .catch(e => console.log(e))
-        }
       }
 
       
@@ -64,10 +44,10 @@ class Post extends Component {
     
             <View style={styles.botonesFila}>
               <Pressable 
-                style={[styles.botonAccion, this.state.miLike && styles.botonLikeActivo]} 
+                style={[styles.botonAccion]} 
                 onPress={() => this.likear()}>
                 <Text style={styles.textoBotonAccion}>
-                  {this.state.miLike ? "Quitar like" : "Me gusta"}
+                  {this.state.likeado ? "Quitar like" : "Me gusta"}
                 </Text>
               </Pressable>
     

@@ -115,29 +115,38 @@ render() {
   );
 }
 }
-
 const styles = StyleSheet.create({
   container:{ 
-    flex: 1, 
-    padding: 16 },
+    flex: 1,
+    backgroundColor: "#fefcfb",
+    padding: 24,
+  },
 
   titulo: { 
-    fontSize: 20, 
-    fontWeight: "700", 
-    marginBottom: 10 },
+    fontSize: 22,
+    fontWeight: "700",
+    fontFamily: "calibri",
+    color: "#111827",
+    marginBottom: 12,
+  },
 
   vacio: { 
     fontStyle: "italic",
-     marginBottom: 10 },
+    fontSize: 14,
+    color: "#6b7280",
+    marginBottom: 12,
+  },
 
-  input: 
-  { borderWidth: 1,
-     borderColor: "#ccc", 
-     borderRadius: 8, 
-     padding: 10,
-    marginTop: 10 , 
+  input: { 
+    borderWidth: 1,
+    borderColor: "#cbd5e1", 
+    borderRadius: 12, 
+    padding: 10,
+    marginTop: 10, 
+    marginBottom: 8,
     height: 100,
-    width:500,
+    textAlignVertical: "top",
+    backgroundColor: "#ffffff",
   },
 
   btn: { 
@@ -146,71 +155,88 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: "center",
     marginTop: 12,
-    width: 500,
-    paddingVertical: 10, 
-    borderRadius: 8, 
+  },
+
+  btnTxt: { 
+    color: "#fff",
+    fontWeight: "700",
+    fontSize: 16,
+    fontFamily: "calibri",
+  },
+
+  btnVolver: {
+    backgroundColor: "#ffffff",
+    borderWidth: 2,
+    borderColor: "#f87171",
+    borderRadius: 12,
+    paddingVertical: 10,
     alignItems: "center",
-     marginBottom: 100 },
+    justifyContent: "center",
+    marginTop: 12,
+  },
 
-  btnTxt:
-   { color: "#fff",
-     fontWeight: "700" ,
-    },
+  btnVolverTxt: {
+    color: "#f87171",
+    fontWeight: "700",
+    fontSize: 16,
+    fontFamily: "calibri",
+  },
 
-    btnVolver: {
-  backgroundColor: "#fff",
-  borderWidth: 2,
-  borderColor: "#f87171",
-  borderRadius: 12,
-  paddingVertical: 10,
-  paddingHorizontal: 20,
-  alignItems: "center",
-  justifyContent: "center",
-  marginTop: 16,
-  width: 500,
-},
+  // tarjeta del post que estás comentando
+  postCard: {
+    backgroundColor: "#ffe4e6",
+    borderWidth: 1,
+    borderColor: "#f87171",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+  },
 
-btnVolverTxt: {
-  color: "#f87171",
-  fontWeight: "700",
-  fontSize: 16,
-},
+  postDescripcion: {
+    fontSize: 16,
+    color: "#111827",
+    marginBottom: 6,
+    fontWeight: "500",
+    fontFamily: "calibri",
+  },
 
+  postOwner: {
+    fontSize: 13,
+    color: "#6b7280",
+    fontStyle: "italic",
+    fontFamily: "calibri",
+  },
 
-    // styles para lp del ppst 
-   postCard: {
-  backgroundColor: "#ffe4e6", 
-  borderWidth: 1,
-  borderColor: "#f87171", 
-  borderRadius: 10,
-  padding: 16,
-  marginBottom: 20,
-},
+  error: { 
+    color: "#dc2626", 
+    marginTop: 8,
+    fontSize: 14,
+    fontFamily: "calibri",
+  },
 
-postDescripcion: {
-  fontSize: 16,
-  color: "#111827",
-  marginBottom: 6,
-  fontWeight: "500",
-},
-
-postOwner: {
-  fontSize: 13,
-  color: "#6b7280",
-  fontStyle: "italic",
-},
-
-
-  error: { color: "red", marginTop: 8 },
-  commentItem: 
-  { backgroundColor: "#f6f6f6", 
-    borderRadius: 8,
+  commentItem: { 
+    backgroundColor: "#ffffff", 
+    borderRadius: 12,
     padding: 10,
-     marginBottom: 8 },
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: "#e5e7eb",
+  },
 
-  commentEmail: { fontWeight: "600", marginBottom: 4 },
-  commentText: {}
+  commentEmail: { 
+    fontWeight: "600",
+    fontSize: 13,
+    color: "#111827",
+    marginBottom: 4,
+    fontFamily: "calibri",
+  },
 
+  commentText: {
+    fontSize: 14,
+    color: "#1f2933",
+    fontFamily: "calibri",
+  },
 });
+
 
 export default CommentPost;

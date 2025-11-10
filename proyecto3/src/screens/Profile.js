@@ -15,15 +15,7 @@ class Profile extends Component {
         }
     }
 
-    borrarPost(id){
-        db.collection('posts')
-        .doc(id)
-        .update({
-          borrado: true
-        })
-        .then(() => console.log("post eliminado"))
-        .catch(e => console.log(e))
-      }
+
 
       deslogear(){
         auth.signOut()
@@ -85,9 +77,6 @@ class Profile extends Component {
         <FlatList data={this.state.posts} keyExtractor={item => item.id.toString()} renderItem={({ item }) => (
             <View style={styles.postContainer}>
               <Text style={styles.postTexto}>{item.data.mensaje}</Text>
-              <Pressable style={styles.deleteButton} onPress={() => this.borrarPost(item.id)}>
-                <Text style={styles.deleteText}>Borrar</Text>
-              </Pressable>
             </View>
         )}/>
 

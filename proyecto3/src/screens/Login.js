@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     backgroundColor: "#ffffff",
     marginBottom: 12,
-    alignSelf: "stretch",   // hace que el input ocupe todo el ancho disponible
+    alignSelf: "stretch", 
   },
 
   button: {

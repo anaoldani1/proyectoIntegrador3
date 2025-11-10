@@ -5,7 +5,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
-import NewPost from "../screens/NewPost"; // <- coincide con el export del archivo
+import NewPost from "../screens/NewPost"; 
 const Tab = createBottomTabNavigator();
 
 function HomeMenu () {

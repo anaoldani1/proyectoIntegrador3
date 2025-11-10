@@ -69,6 +69,16 @@ class Register extends Component {
           }))
     }
 
+    componentDidMount(){
+      ///SI YA ESTA LOGUEADO QUE NO MW LLEVE IGUAL A register
+      auth.onAuthStateChanged(user => {
+        console.log(user)
+        if(user){
+        this.props.navigation.navigate("HomeMenu");
+        }
+    })
+    }
+
     render(){
         return(
         <View style={styles.container}> 
